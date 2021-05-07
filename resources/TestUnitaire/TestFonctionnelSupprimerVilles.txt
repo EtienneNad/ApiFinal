@@ -1,4 +1,6 @@
-/* structure de la réponse
+/* http://localhost/ApiFinal/DeleteVilles/2
+ 
+structure de la réponse
  
 "la Ville a été supprimer avec succès"
 */

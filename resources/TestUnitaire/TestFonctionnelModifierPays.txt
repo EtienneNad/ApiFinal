@@ -1,4 +1,14 @@
-/* structure de la réponse
+/*http://localhost/ApiFinal/modifierPays 
+structure de la demande
+{
+    "id": 1,
+    "nomPays":"victoriol",
+    "population":4312414,
+    "superficie" : 19756543,
+    "nombre_ville":36,
+    "economie": 124444444.91
+}
+structure de la réponse
 [
     {
     "id": "1",

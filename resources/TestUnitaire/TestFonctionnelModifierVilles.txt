@@ -1,4 +1,12 @@
-/* structure de la réponse
+/* http://localhost/ApiFinal/modifierVilles 
+structure de la demande	
+    {
+            "id": 3,
+            "nom_ville": "victorium",
+            "population": 1221121,
+            "capitale": 1
+    }
+structure de la réponse
 [
     {
        "id": "2",

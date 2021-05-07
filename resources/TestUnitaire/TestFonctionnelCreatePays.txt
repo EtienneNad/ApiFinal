@@ -1,4 +1,13 @@
-/* structure de la réponse
+/* http://localhost/ApiFinal/AddPays
+structure de la demande
+{
+    "nomPays":"victol",
+    "population":4312414,
+    "superficie" : 19756543,
+    "nombre_ville":36,
+    "economie": 124444444.90
+}
+structure de la réponse
 [
     {
         "id": "1"

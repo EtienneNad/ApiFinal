@@ -1,4 +1,6 @@
-/* structure de la réponse
+/*http://localhost/ApiFinal/DeletePays/1 
+
+structure de la réponse
 
 "le pays a été supprimer avec succès"
 

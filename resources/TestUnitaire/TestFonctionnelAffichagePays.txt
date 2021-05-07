@@ -1,4 +1,6 @@
-/* structure de la réponse
+/* http://localhost/ApiFinal/Pays
+
+structure de la réponse
 [
     {
         "id": "1",

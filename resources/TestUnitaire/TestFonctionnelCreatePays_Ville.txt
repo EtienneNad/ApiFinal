@@ -1,4 +1,12 @@
-/* structure de la réponse
+/*http://localhost/ApiFinal/AddPaysVilles
+
+structure de la demande
+ {
+    "pays_id": 1,
+    "ville_id": 1
+   
+}
+structure de la réponse
 [
     {
         "id": "1"

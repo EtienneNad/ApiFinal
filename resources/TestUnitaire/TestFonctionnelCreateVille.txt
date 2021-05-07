@@ -1,4 +1,11 @@
-/* structure de la réponse
+/*http://localhost/ApiFinal/AddVilles
+structure de la demande
+{
+    "nom_ville":"victorium",
+    "population":1241421,
+    "capitale" : 0
+}
+structure de la réponse
 [
     {
         "id": "1"

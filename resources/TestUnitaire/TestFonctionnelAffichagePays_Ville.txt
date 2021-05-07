@@ -1,4 +1,6 @@
-/* structure de la réponse
+/* http://localhost/ApiFinal/paysVilles
+ 
+structure de la réponse
 [
     {
         "nomPays": "victoriol",
