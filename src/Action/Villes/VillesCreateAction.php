@@ -28,7 +28,7 @@ final class VillesCreateAction
 
         // Transform the result into the JSON representation
         $result = [
-            'id' => $id
+             'id'=>$id
         ];
 
         // Build the HTTP response

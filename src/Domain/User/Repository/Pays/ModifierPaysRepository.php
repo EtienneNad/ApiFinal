@@ -40,7 +40,7 @@ class ModifierPaysRepository
             'population' => $Pays['population'],
             'superficie' => $Pays['superficie'],
             'nombre_ville' => $Pays['nombre_ville'],
-            'economie' => $Pays['economie'],
+            'economie' => $Pays['economie']
         ];
 
         $sql = "UPDATE pays SET nomPays=:nomPays, population=:population, superficie=:superficie, nombre_ville=:nombre_ville, economie=:economie  WHERE id=:id;";

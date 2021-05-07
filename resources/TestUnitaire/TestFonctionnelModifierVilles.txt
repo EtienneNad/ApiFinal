@@ -1,0 +1,35 @@
+/* structure de la réponse
+[
+    {
+       "id": "2",
+        "nom_ville": "victorium",
+        "population": "1221121",
+        "capitale": "1"
+    },
+]
+*/
+
+pm.test("la création fonctionne", function(){
+
+    pm.response.to.have.status(201);
+    pm.response.to.have.status("Created");
+
+});
+
+pm.test("les clés attendues sont présente dans la response", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData).to.have.all.keys('id','nom_ville', 'population', 'capitale')    
+});
+
+pm.test("les valeurs de la répose sont du bon type", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData.id).to.be.an("number");
+        pm.expect(jsonData.nom_ville).to.an("string");
+        pm.expect(jsonData.population).to.be.an("number");
+        pm.expect(jsonData.capitale).to.be.an("number");
+
+
+
+});

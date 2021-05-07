@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Domain\User\Repository\Villes;
+
+namespace App\Domain\User\Repository\PaysVilles;
 
 use PDO;
 
-/**
- * Repository.
- */
-class ModifierVillesRepository
+class PaysVillesCreateRepository
 {
     /**
      * @var PDO The database connection
@@ -32,19 +30,21 @@ class ModifierVillesRepository
      *
      * @return int The new ID
      */
-    public function ModificationVille(array $villes): array
+    public function insertPaysVilles(array $villes): int
     {
         $row = [
-            'id' => $villes['id'],
-            'nom_ville' => $villes['nom_ville'],
-            'population' => $villes['population'],
-            'capitale' => $villes['capitale']
+            'pays_id' => $villes['pays_id'],
+            'ville_id' => $villes['ville_id']
+
         ];
 
-        $sql = "UPDATE ville SET nom_ville=:nom_ville, population=:population, capitale=:capitale  WHERE id=:id;";
+        $sql = "INSERT INTO pays_ville SET 
+                pays_id=:pays_id, 
+                ville_id=:ville_id 
+               
+                ";
 
         $this->connection->prepare($sql)->execute($row);
-        return $row;
-    }
-}
+        return (int)$this->connection->lastInsertId();
 
+    }}

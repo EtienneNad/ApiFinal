@@ -19,6 +19,10 @@ return function (App $app) {
     $app->delete('/DeleteVilles/{id}', \App\Action\Villes\VillesDeleteAction::class);
     $app->put('/modifierVilles',\App\Action\Villes\ModifierVillesAction::class);
 
+    // Pays_Villes
+    $app->get('/paysVilles', \App\Action\PaysVilles\AffichagePaysVillesAction::class);
+    $app->post('/AddPaysVilles', \App\Action\PaysVilles\PaysVillesCreateAction::class);
+
     //Docs
     $app->get('/docs/v1', \App\Action\Docs\SwaggerUiAction::class);
 

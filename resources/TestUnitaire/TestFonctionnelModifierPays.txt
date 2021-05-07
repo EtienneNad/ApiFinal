@@ -1,0 +1,39 @@
+/* structure de la réponse
+[
+    {
+    "id": "1",
+    "nomPays": "victoriol",
+    "population": "4312414",
+    "superficie": "19756543",
+    "nombre_ville": "36",
+    "economie": "124444444.90"
+    }
+]
+*/
+
+pm.test("la création fonctionne", function(){
+
+    pm.response.to.have.status(201);
+    pm.response.to.have.status("Created");
+
+});
+
+pm.test("les clés attendues sont présente dans la response", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData).to.have.all.keys('id','nomPays', 'population', 'superficie', 'nombre_ville', 'economie')    
+});
+
+pm.test("les valeurs de la répose sont du bon type", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData.id).to.be.an("number");
+        pm.expect(jsonData.nomPays).to.an("string");
+        pm.expect(jsonData.population).to.be.an("number");
+        pm.expect(jsonData.superficie).to.be.an("number");
+        pm.expect(jsonData.nombre_ville).to.be.an("number");
+        pm.expect(jsonData.economie).to.be.an("number");
+
+
+
+});

@@ -37,20 +37,20 @@ class VillesCreatorRepository
         $row = [
             'nom_ville' => $villes['nom_ville'],
             'population' => $villes['population'],
-            'capitale' => $villes['capitale'],
+            'capitale' => $villes['capitale']
 
         ];
 
         $sql = "INSERT INTO ville SET 
                 nom_ville=:nom_ville, 
                 population=:population, 
-                capitale=:capitale, 
+                capitale=:capitale 
                
                 ";
 
         $this->connection->prepare($sql)->execute($row);
-
         return (int)$this->connection->lastInsertId();
+
     }
 }
 

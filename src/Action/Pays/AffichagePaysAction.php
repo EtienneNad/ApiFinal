@@ -21,22 +21,12 @@ final class AffichagePaysAction
     ): ResponseInterface {
 
         $pays = $this->affichagePays->affichagePays();
-        $result = ([
-             'nomPays' => $pays
-        ]);
 
-        $response->getBody()->write((string)json_encode($result));
-        return $response->withHeader('Content-Type', 'application/json');
+        $response->getBody()->write((string)json_encode($pays));
+        return $response
 
-        /**
-         * Changer le code de statut de la réponse
-         *
-         * return $response
-         *          ->withHeader('Content-Type', 'application/json')
-         *          ->withStatus(422);
-         *
-         */
-
+            ->withHeader('Content-Type', 'application/json')
+            ->withStatus(201);
 
 
     }

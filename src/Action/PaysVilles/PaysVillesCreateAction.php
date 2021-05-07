@@ -1,39 +1,37 @@
 <?php
 
-namespace App\Action\Pays;
-use App\Domain\User\Repository\Pays\ModifierPaysRepository;
+
+
+namespace App\Action\PaysVilles;
+
 use App\Factory\LoggerFactory;
 use Psr\Log\LoggerInterface;
+use App\Domain\User\Repository\PaysVilles\PaysVillesCreateRepository;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class ModifierPaysAction
+class PaysVillesCreateAction
 {
-    private $ModifierPays;
+    private $PaysVillesCreate;
 
-    public function __construct(ModifierPaysRepository $ModifierPays)
+    public function __construct(PaysVillesCreateRepository $PaysVillesCreate)
     {
-        $this->ModifierPays = $ModifierPays;
+        $this->PaysVillesCreate = $PaysVillesCreate;
     }
 
     public function __invoke(
-        ServerRequestInterface $request, 
+        ServerRequestInterface $request,
         ResponseInterface $response
     ): ResponseInterface {
         // Collect input from the HTTP request
         $data = (array)$request->getParsedBody();
 
         // Invoke the Domain with inputs and retain the result
-        $id = $this->ModifierPays->ModificationPays($data);
+        $id = $this->PaysVillesCreate->insertPaysVilles($data);
 
         // Transform the result into the JSON representation
         $result = [
-            'id' => $id ['id'],
-            'nomPays' => $id['nomPays'],
-            'population' => $id['population'],
-            'superficie' => $id['superficie'],
-            'nombre_ville' => $id['nombre_ville'],
-            'economie' => $id['economie']
+            'id'=>$id
         ];
 
         // Build the HTTP response

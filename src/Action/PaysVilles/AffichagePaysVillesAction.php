@@ -1,26 +1,26 @@
 <?php
 
 
-namespace App\Action\Villes;
+namespace App\Action\PaysVilles;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use App\Domain\User\Repository\Villes\affichageVillesRepository;
+use App\Domain\User\Repository\PaysVilles\AffichagePaysVillesRepository;
 
-final class AffichageVillesAction
+class AffichagePaysVillesAction
 {
-    private $affichageVille;
+    private $affichagePaysVille;
 
-    public function __construct(AffichageVillesRepository $affichageVille)
+    public function __construct(AffichagePaysVillesRepository $affichagePaysVille)
     {
-        $this->affichageVille = $affichageVille;
+        $this->affichagePaysVille = $affichagePaysVille;
     }
     public function __invoke(
         ServerRequestInterface $request,
         ResponseInterface $response
     ): ResponseInterface {
 
-        $titre = $this->affichageVille->AffichageVilles();
+        $titre = $this->affichagePaysVille->AffichagePaysVilles();
 
 
         $response->getBody()->write((string)json_encode($titre));
@@ -32,4 +32,5 @@ final class AffichageVillesAction
 
 
     }
+
 }

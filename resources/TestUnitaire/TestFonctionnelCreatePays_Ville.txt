@@ -1,0 +1,30 @@
+/* structure de la réponse
+[
+    {
+        "id": "1"
+    },
+]
+*/
+
+pm.test("la création fonctionne", function(){
+
+    pm.response.to.have.status(201);
+    pm.response.to.have.status("Created");
+
+});
+
+pm.test("les clés attendues sont présente dans la response", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData).to.have.all.keys('id');    
+});
+
+pm.test("les valeurs de la répose sont du bon type", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData.id).to.be.an("number");
+      
+
+
+
+});

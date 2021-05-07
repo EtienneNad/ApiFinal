@@ -28,7 +28,11 @@ final class ModifierVillesAction
 
         // Transform the result into the JSON representation
         $result = [
-            'id' => $id
+            'id' => $id['id'],
+            'nom_ville' => $id['nom_ville'],
+            'population' => $id['population'],
+            'capitale' => $id['capitale']
+
         ];
 
         // Build the HTTP response

@@ -1,0 +1,26 @@
+/* structure de la réponse
+[
+    {
+        "id": "1",
+        "nom_ville": "victol",
+        "population": "12414",
+        "capitale": "1"
+    },
+    ...
+]
+*/
+
+pm.test("la création fonctionne", function(){
+
+    pm.response.to.have.status(201);
+    pm.response.to.have.status("Created");
+
+});
+
+pm.test("les valeurs de la répose sont du bon type", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData).to.be.an("array");
+       
+
+});

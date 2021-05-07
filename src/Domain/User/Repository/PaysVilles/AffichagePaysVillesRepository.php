@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Domain\User\Repository\Villes;
+
+ namespace App\Domain\User\Repository\PaysVilles;
+
 
 use PDO;
 
-/**
- * Repository.
- */
-class AffichageVillesRepository
+class AffichagePaysVillesRepository
 {
-    /**
-     * @var PDO The database connection
+/**
+* @var PDO The database connection
      */
     private $connection;
 
@@ -32,14 +31,15 @@ class AffichageVillesRepository
      *
      * @return array The new ID
      */
-    public function AffichageVilles() :array
+    public function AffichagePaysVilles() :array
     {
 
-        $sql = "SELECT * from ville ;";
+        $sql = "select   pays.nomPays,ville.nom_ville, ville.capitale from pays_ville
+                inner join ville on pays_ville.ville_id = ville.id
+                inner join pays on pays_ville.pays_id = pays.id;";
 
 
 
         return $this->connection->query($sql)->fetchAll();
     }
 }
-

@@ -1,0 +1,24 @@
+/* structure de la réponse
+[
+    {
+        "nomPays": "victoriol",
+        "nom_ville": "victol",
+        "capitale": "1"
+    },
+    ...
+]
+*/
+
+pm.test("la création fonctionne", function(){
+
+    pm.response.to.have.status(201);
+    pm.response.to.have.status("Created");
+
+});
+
+pm.test("les valeurs de la répose sont du bon type", function(){
+    const jsonData =pm.response.json();
+  
+        pm.expect(jsonData).to.be.an("array");
+       
+});
