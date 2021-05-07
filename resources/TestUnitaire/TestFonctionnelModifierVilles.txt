@@ -1,4 +1,4 @@
-/* http://localhost/ApiFinal/modifierVilles 
+/* http://localhost/ApiFinal/ModifierVilles 
 structure de la demande	
     {
             "id": 3,

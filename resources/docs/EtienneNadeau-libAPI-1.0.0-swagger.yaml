@@ -1,77 +1,433 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: LibAPI
+  title: ApiFinal
   description: Service Web
-  
-servers: 
-  - url: http://localhost/projet
+
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/GamerLance/livre/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/GamerLance/ApiFinal/1.0.0
+  - url: http://localhost/ApiFinal
 paths:
 
-  /books:
+  /Pays:
     get:
       tags:
-        - livre
-      summary: affichage livre
+        - Pays
+      summary: Afficher les Pays
       responses:
-        "200":
-          description: un tableau de livre
+        "201":
+          description: un tableau de Pays
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Livre'
-  components:
-    schemas:
-      Livre:
-        type: object
-        properties:
-          id:
-            type: integer
-            format: int64
-  /books/{id}:
-    get:
-      tags: 
-        - livre
-      summary: affichage livre selon id
+                $ref: '#/components/schemas/TableauPays'
+
+
+  /AddPays:
+    post:
+      tags:
+        - Pays
+      summary: Ajouter un Pays
+      requestBody:
+        description: information du Pays a ajouter
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AjouterPays'
+      responses:
+        '201':
+          description: le Pays a été ajouter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retourID'
+
+  /ModifierPays:
+    put:
+      tags:
+        - Pays
+      summary: Modification d'un Pays déja existant
+      requestBody:
+        description: information du Pays a ajouter
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DemandeModificationPays'
+
+      responses:
+        '201':
+          description: le Pays a été Modifier
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableauPays'
+
+  /DeletePays/{id}:
+    delete:
+      tags:
+        - Pays
+      summary: supprime un Pays
       parameters:
         - name: id
           in: path
-          required:  true
-          description: le id du livre a afficher
+          required: true
+          description: suppression du Pays
           schema:
             type: integer
       responses:
-        '200':
-          description: le livre a afficher
+        '201':
+          description: le Pays a été supprimer
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "le Pays a été supprimer avec succès"
+
+  /Villes:
+    get:
+      tags:
+        - Ville
+      summary: affichage des villes
+      responses:
+        "201":
+          description: un tableau de ville
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Livre'
+                $ref: '#/components/schemas/TableauVilles'
+
+  /AddVilles:
+    post:
+      tags:
+        - Ville
+      summary: Ajout d'une ville
+      requestBody:
+        description: information de la ville Ajouter
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AjouterVilles'
+      responses:
+        '201':
+          description: la ville a été ajouter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retourID'
+
+  /ModifierVilles:
+    put:
+      tags:
+        - Ville
+      summary: modification d'une ville déja existante
+      requestBody:
+        description: information de la ville a modifier
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DemandeModifierVilles'
+
+      responses:
+        '201':
+          description: la ville a été modifier
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableauVilles'
+
+  /DeleteVilles/{id}:
+    delete:
+      tags:
+        - Ville
+      summary: supprimer une ville
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: suppression d'une ville
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: la ville a été supprimer
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "la Ville a été supprimer avec succès"
+
+  /PaysVilles:
+    get:
+      tags:
+        - Pays_Ville
+      summary: affichage de la ville d'un pays
+      responses:
+        "201":
+          description: un tableau de pays et de ville
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableauPaysVille'
+
+  /AddPaysVilles:
+    post:
+      tags:
+        - Pays_Ville
+      summary: ajout de la ville d'un pays
+      requestBody:
+        description: information de la ville d'un pays créer
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AjouterPaysVilles'
+
+      responses:
+        '201':
+          description: la ville d'un pays a été créer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retourID'
 components:
   schemas:
-    Livre:
-      type: object
-      required:
-        - genreId
-        - titre
-        - isbn
+
+
+
+    retourID:
+      type: integer
       properties:
         id:
           type: integer
           format: int64
-        genreId:
+      example:
+        id: 1
+      items:
+        $ref: '#/components/schemas/retourID'
+    TableauPays:
+      type: array
+      required:
+        - id
+        - population
+        - superficie
+        - nombre_ville
+        - economie
+        - typeMonaie
+      properties:
+        id:
           type: integer
           format: int64
-        titre:
+        nomPays:
           type: string
-        isbn:
+        population:
+          type: number
+        superficie:
+          type: number
+        nombre_ville:
+          type: number
+        economie:
+          type: number
+        typeMonaie:
           type: string
       example:
-          id: 1
-          genreId : 1
-          titre: Fondation
-          isbn: '9782070463619'
-    Livres:
-      type: array
+        id: 1
+        nomPays : Japon
+        population: 160988890
+        superficie: 70463619.16
+        nombre_ville: 64
+        economieL: 17 000 000,99
+        typeMonaie: Yen
+
       items:
-        $ref: '#/components/schemas/Livre'
+        $ref: '#/components/schemas/TableauPays'
+    AjouterPays:
+      type: object
+      required:
+        - nomPays
+        - population
+        - superficie
+        - nombre_ville
+        - economie
+        - typeMonaie
+      properties:
+
+        nomPays:
+          type: string
+        population:
+          type: number
+        superficie:
+          type: number
+        nombre_ville:
+          type: number
+        economie:
+          type: number
+        typeMonaie:
+          type: string
+      example:
+
+        nomPays : Japon
+        population: 160988890
+        superficie: 70463619.16
+        nombre_ville: 64
+        economie: 17 000 000.99
+        typeMonaie: Yen
+      items:
+        $ref: '#/components/schemas/AjouterPays'
+
+    DemandeModificationPays:
+      type: object
+      required:
+        - id
+        - population
+        - superficie
+        - nombre_ville
+        - economie
+        - typeMonaie
+      properties:
+        id:
+          type: integer
+          format: int64
+        nomPays:
+          type: string
+        population:
+          type: number
+        superficie:
+          type: number
+        nombre_ville:
+          type: number
+        economie:
+          type: number
+        typeMonaie:
+          type: string
+      example:
+        id: 1
+        nomPays : Japon
+        population: 160988890
+        superficie: 70463619.16
+        nombre_ville: 64
+        economieL: 17 000 000,99
+        typeMonaie: Yen
+      items:
+        $ref: '#/components/schemas/DemandeModificationPays'
+
+    TableauVilles:
+      type: array
+      required:
+        - id
+        - nom_ville
+        - population
+        - capitale
+      properties:
+        id:
+          type: integer
+          format: int64
+        nom_ville:
+          type: string
+        population:
+          type: number
+        capitale:
+          type: number
+      example:
+        id: 1
+        nom_ville: Tokyo
+        population: 1234546
+        capitale: 0
+      items:
+        $ref: '#/components/schemas/TableauVilles'
+
+    DemandeModifierVilles:
+      type: object
+      required:
+        - id
+        - nom_ville
+        - population
+        - capitale
+      properties:
+        id:
+          type: integer
+          format: int64
+        nom_ville:
+          type: string
+        population:
+          type: number
+        capitale:
+          type: number
+      example:
+        id: 1
+        nom_ville: Tokyo
+        population: 1234546
+        capitale: 0
+      items:
+        $ref: '#/components/schemas/DemandeModifierVilles'
+
+    AjouterVilles:
+      type: object
+      required:
+        - nom_ville
+        - population
+        - capitale
+      properties:
+        nom_ville:
+          type: string
+        population:
+          type: number
+        capitale:
+          type: number
+      example:
+
+        nom_ville: Tokyo
+        population: 1234546
+        capitale: 0
+      items:
+        $ref: '#/components/schemas/AjouterVilles'
+
+    TableauPaysVille:
+      type: array
+      required:
+        - nomPays
+        - nom_ville
+        - capitale
+      properties:
+        nomPays:
+          type: string
+        nom_ville:
+          type: string
+        capitale:
+          type: number
+      example:
+
+        nomPays: Japon
+        nom_ville: Tokyo
+        capitale: 1
+
+      items:
+        $ref: '#/components/schemas/TableauPaysVille'
+    AjouterPaysVilles:
+      type: object
+      required:
+        - pays_id
+        - ville_id
+
+      properties:
+        pays_id:
+          type: integer
+          format: int64
+        Ville_id:
+          type: integer
+          format: int64
+      example:
+
+        pays_id: 1
+        ville_id: 1
+
+      items:
+        $ref: '#/components/schemas/AjouterPaysVilles'

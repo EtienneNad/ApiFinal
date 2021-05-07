@@ -3,9 +3,10 @@ structure de la demande
 {
     "nomPays":"victol",
     "population":4312414,
-    "superficie" : 19756543,
+    "superficie" : 19756543.16,
     "nombre_ville":36,
-    "economie": 124444444.90
+    "economie": 124444444.90,
+    "typeMonaie": "Yen"
 }
 structure de la réponse
 [

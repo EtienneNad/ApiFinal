@@ -40,6 +40,7 @@ class PaysCreatorRepository
             'superficie' => $Pays['superficie'],
             'nombre_ville' => $Pays['nombre_ville'],
             'economie' => $Pays['economie'],
+            'typeMonaie'=> $Pays['typeMonaie']
 
         ];
 
@@ -48,7 +49,10 @@ class PaysCreatorRepository
                 population=:population, 
                 superficie=:superficie, 
                 nombre_ville=:nombre_ville, 
-                economie=:economie
+                economie=:economie,            
+                typeMonaie =: typeMonaie
+
+
                 ";
 
         $this->connection->prepare($sql)->execute($row);

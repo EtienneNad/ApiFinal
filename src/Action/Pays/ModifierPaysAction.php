@@ -33,7 +33,9 @@ final class ModifierPaysAction
             'population' => $id['population'],
             'superficie' => $id['superficie'],
             'nombre_ville' => $id['nombre_ville'],
-            'economie' => $id['economie']
+            'economie' => $id['economie'],
+            'typeMonaie'=> $id['typeMonaie']
+
         ];
 
         // Build the HTTP response

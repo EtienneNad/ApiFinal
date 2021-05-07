@@ -1,12 +1,13 @@
-/*http://localhost/ApiFinal/modifierPays 
+/*http://localhost/ApiFinal/ModifierPays 
 structure de la demande
 {
     "id": 1,
     "nomPays":"victoriol",
     "population":4312414,
-    "superficie" : 19756543,
+    "superficie" : 19756543.16,
     "nombre_ville":36,
-    "economie": 124444444.91
+    "economie": 124444444.91,
+    "typeMonaie": "Yen"
 }
 structure de la réponse
 [
@@ -14,9 +15,10 @@ structure de la réponse
     "id": "1",
     "nomPays": "victoriol",
     "population": "4312414",
-    "superficie": "19756543",
+    "superficie": "19756543.16",
     "nombre_ville": "36",
-    "economie": "124444444.90"
+    "economie": "124444444.91", 
+    "typeMonaie": "Yen"
     }
 ]
 */

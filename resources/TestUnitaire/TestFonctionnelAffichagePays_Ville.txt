@@ -1,4 +1,4 @@
-/* http://localhost/ApiFinal/paysVilles
+/* http://localhost/ApiFinal/PaysVilles
  
 structure de la réponse
 [
