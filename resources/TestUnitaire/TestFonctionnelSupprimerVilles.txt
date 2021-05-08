@@ -7,9 +7,8 @@ structure de la réponse
 
 pm.test("la création fonctionne", function(){
 
-    pm.response.to.have.status(201);
-    pm.response.to.have.status("Created");
-
+    pm.response.to.have.status(200);
+    pm.response.to.have.status("OK");
 });
 
 pm.test("les valeurs de la répose sont du bon type", function(){

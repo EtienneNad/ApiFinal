@@ -50,7 +50,7 @@ class PaysCreatorRepository
                 superficie=:superficie, 
                 nombre_ville=:nombre_ville, 
                 economie=:economie,            
-                typeMonaie =: typeMonaie
+                typeMonaie=:typeMonaie
 
 
                 ";

@@ -6,8 +6,7 @@ structure de la demande
     "population":4312414,
     "superficie" : 19756543.16,
     "nombre_ville":36,
-    "economie": 124444444.91,
-    "typeMonaie": "Yen"
+    "economie": 124444444.91
 }
 structure de la réponse
 [
@@ -17,8 +16,7 @@ structure de la réponse
     "population": "4312414",
     "superficie": "19756543.16",
     "nombre_ville": "36",
-    "economie": "124444444.91", 
-    "typeMonaie": "Yen"
+    "economie": "124444444.91"
     }
 ]
 */

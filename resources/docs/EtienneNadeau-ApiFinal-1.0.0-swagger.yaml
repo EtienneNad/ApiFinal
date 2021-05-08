@@ -20,7 +20,7 @@ paths:
         - Pays
       summary: Afficher les Pays
       responses:
-        "201":
+        "202":
           description: un tableau de Pays
           content:
             application/json:
@@ -82,7 +82,7 @@ paths:
           schema:
             type: integer
       responses:
-        '201':
+        '200':
           description: le Pays a été supprimer
           content:
             text/plain:
@@ -96,7 +96,7 @@ paths:
         - Ville
       summary: affichage des villes
       responses:
-        "201":
+        "202":
           description: un tableau de ville
           content:
             application/json:
@@ -157,7 +157,7 @@ paths:
           schema:
             type: integer
       responses:
-        '201':
+        '200':
           description: la ville a été supprimer
           content:
             text/plain:
@@ -171,7 +171,7 @@ paths:
         - Pays_Ville
       summary: affichage de la ville d'un pays
       responses:
-        "201":
+        "202":
           description: un tableau de pays et de ville
           content:
             application/json:

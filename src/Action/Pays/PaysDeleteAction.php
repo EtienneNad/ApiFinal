@@ -31,6 +31,6 @@ final class PaysDeleteAction
 
         return $response
             ->withHeader('Content-Type', 'application/json')
-            ->withStatus(201);
+            ->withStatus(200);
     }
 }

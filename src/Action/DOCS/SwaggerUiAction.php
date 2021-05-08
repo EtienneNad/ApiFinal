@@ -33,7 +33,7 @@ final class SwaggerUiAction
         ResponseInterface $response
     ): ResponseInterface {
         // Path to the yaml file
-        $yamlFile = __DIR__ . '/../../../resources/docs/EtienneNadeau-libAPI-1.0.0-swagger.yaml';
+        $yamlFile = __DIR__ . '/../../../resources/docs/EtienneNadeau-ApiFinal-1.0.0-swagger.yaml';
 
         $viewData = [
             'spec' =>json_encode(Yaml::parseFile($yamlFile)),

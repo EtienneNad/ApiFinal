@@ -26,7 +26,7 @@ class AffichagePaysVillesAction
         $response->getBody()->write((string)json_encode($titre));
         return $response
             ->withHeader('Content-Type', 'application/json')
-            ->withStatus(201);
+            ->withStatus(202);
 
 
 

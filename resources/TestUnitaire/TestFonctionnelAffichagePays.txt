@@ -17,8 +17,8 @@ structure de la réponse
 
 pm.test("la création fonctionne", function(){
 
-    pm.response.to.have.status(201);
-    pm.response.to.have.status("Created");
+     pm.response.to.have.status(202);
+     pm.response.to.have.status("Accepted");
 
 });
 
